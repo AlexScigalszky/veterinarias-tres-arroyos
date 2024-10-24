@@ -103,10 +103,11 @@
                             ${veterinaria.nombre}
                         </h5>
                         ${veterinaria.direccion ? `<p class="card-text">Dirección: ${veterinaria.direccion}</p>` : "<p></p>"}
-                        <p class="card-text">Teléfono: ${veterinaria.telefono}</p>
-                        <p class="card-text">Celular: ${veterinaria.celular}</p>
+                        <p class="card-text">Teléfono: ${veterinaria.telefono ? veterinaria.telefono : "No disponible"}</p>
+                        <p class="card-text">Celular: ${veterinaria.celular ? veterinaria.celular : "No disponible"}</p>
                         <p class="card-text"><strong>Turnos:</strong><br>${turnosFormatted}</p>
-                        <a href="tel:${veterinaria.telefono}" class="btn btn-primary mt-auto">Llamar</a>
+                        ${veterinaria.telefono ? `<a href="tel:${veterinaria.telefono}" class="btn btn-primary mt-2">Llamar al Fijo</a>` : ""}
+                        ${veterinaria.celular ? `<a href="tel:${veterinaria.celular}" class="btn btn-primary mt-2">Llamar al Celular</a>` : ""}
                     </div>
                 </div>
             `;
@@ -116,9 +117,14 @@
               hayTurnosHoy = true; // Cambiar el flag si hay turnos hoy
               // Agregar a la lista de turnos hoy
               const turnoItem = document.createElement("li");
-              turnoItem.innerHTML = `${veterinaria.nombre} - Teléfono: ${veterinaria.telefono || 'No disponible'} - Celular: ${veterinaria.celular || 'No disponible'} 
-              ${veterinaria.telefono ? `<a href="tel:${veterinaria.telefono}" class="btn btn-primary btn-sm ml-2">Llamar Fijo</a>` : ""}
-              ${veterinaria.celular ? `<a href="tel:${veterinaria.celular}" class="btn btn-primary btn-sm ml-2">Llamar Celular</a>` : ""}`;
+              turnoItem.innerHTML = `
+                <div>
+                    <strong>${veterinaria.nombre}</strong><br>
+                    Teléfono: ${veterinaria.telefono || 'No disponible'}<br>
+                    Celular: ${veterinaria.celular || 'No disponible'}<br>
+                    ${veterinaria.telefono ? `<a href="tel:${veterinaria.telefono}" class="btn btn-primary btn-sm mt-2">Llamar Fijo</a>` : ""}
+                    ${veterinaria.celular ? `<a href="tel:${veterinaria.celular}" class="btn btn-primary btn-sm mt-2">Llamar Celular</a>` : ""}
+                </div>`;
               turnosHoyList.appendChild(turnoItem);
             }
           });
