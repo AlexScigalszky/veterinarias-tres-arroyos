@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinarias en Tres Arroyos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f3f9f6;
+            color: #333;
+        }
+        h1 {
+            color: #005f73;
+            font-weight: bold;
+        }
+        .veterinaria-card {
+            margin-bottom: 20px;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #e0f7fa;
+        }
+        .card-title {
+            color: #0a9396;
+        }
+        .card-text {
+            color: #333;
+        }
+        .btn-primary {
+            background-color: #0077b6;
+            border-color: #0077b6;
+        }
+        .btn-primary:hover {
+            background-color: #023e8a;
+            border-color: #023e8a;
+        }
+        .turnos-list {
+            background-color: #e5e5e5;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        .turnos-list h3 {
+            color: #005f73;
+        }
+        @media (max-width: 768px) {
+            .veterinaria-card {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Veterinarias en Tres Arroyos</h1>
+
+        <!-- Sección de veterinarias de turno hoy -->
+        <div class="turnos-list" id="turnos-hoy-container" style="display: none;">
+            <h3>Veterinarias de turno <b>hoy</b></h3>
+            <ul id="turnos-hoy"></ul>
+        </div>
+
+        <div class="row" id="veterinarias"></div>
+    </div>
+
+    <script>
+        const container = document.getElementById('veterinarias');
+        const turnosHoyList = document.getElementById('turnos-hoy');
+        const turnosHoyContainer = document.getElementById('turnos-hoy-container');
+
+        // Obtener la fecha de hoy en formato YYYY-MM-DD
+        const hoy = new Date().toISOString().split('T')[0];
+
+        // Cargar datos desde el JSON
+        fetch('veterinarias.json')
+            .then(response => response.json())
+            .then(veterinarias => {
+                // Función para generar las tarjetas de las veterinarias
+                veterinarias.forEach(veterinaria => {
+                    // Crear lista de turnos en formato legible
+                    const turnosFormatted = veterinaria.turnos.map(turno => {
+                        const date = new Date(turno);
+                        return date.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+                    }).join('<br>');
+
+                    // Crear tarjeta de veterinaria
+                    const card = document.createElement('div');
+                    card.className = 'col-12 col-md-6 col-lg-4 veterinaria-card';
+                    card.innerHTML = `
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h5 class="card-title">
+                                    <img src="https://img.icons8.com/?size=35&id=67881&format=png&color=C850F2" alt="icono veterinaria" class="mr-2" style="vertical-align: middle;">
+                                    ${veterinaria.nombre}
+                                </h5>
+                                ${veterinaria.direccion ? `<p class="card-text">Dirección: ${veterinaria.direccion}</p>` : '<p></p>'}
+                                <p class="card-text">Teléfono: ${veterinaria.telefono}</p>
+                                <p class="card-text"><strong>Turnos:</strong><br>${turnosFormatted}</p>
+                                <a href="tel:${veterinaria.telefono}" class="btn btn-primary mt-auto">Llamar</a>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(card);
+
+                    // Verificar si la veterinaria está de turno hoy
+                    if (veterinaria.turnos.includes(hoy)) {
+                        const turnoItem = document.createElement('li');
+                        turnoItem.textContent = `${veterinaria.nombre} - Teléfono: ${veterinaria.telefono}`;
+                        turnosHoyList.appendChild(turnoItem);
+                        turnosHoyContainer.style.display = 'block';  // Mostrar la sección de turnos si hay veterinarias
+                    }
+                });
+            })
+            .catch(error => console.error('Error al cargar el archivo JSON:', error));
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

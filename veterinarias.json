@@ -1,0 +1,25 @@
+[
+  {
+      "nombre": "Veterinaria Tres Arroyos",
+      "direccion": "Av. San Martín 123",
+      "telefono": "02983-123456",
+      "turnos": ["2024-10-23", "2024-10-30"]
+  },
+  {
+      "nombre": "Clínica Veterinaria El Pet",
+      "direccion": "",
+      "telefono": "02983-654321",
+      "turnos": ["2024-10-25"]
+  },
+  {
+      "nombre": "Veterinaria San Francisco",
+      "telefono": "02983-987654",
+      "turnos": ["2024-10-24"]
+  },
+  {
+      "nombre": "Veterinaria Huellitas",
+      "direccion": "Calle 12 789",
+      "telefono": "02983-567890",
+      "turnos": ["2024-10-24", "2024-10-28"]
+  }
+]
