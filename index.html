@@ -116,7 +116,9 @@
               hayTurnosHoy = true; // Cambiar el flag si hay turnos hoy
               // Agregar a la lista de turnos hoy
               const turnoItem = document.createElement("li");
-              turnoItem.textContent = `${veterinaria.nombre} - Teléfono: ${veterinaria.telefono} - Celular: ${veterinaria.celular}`;
+              turnoItem.innerHTML = `${veterinaria.nombre} - Teléfono: ${veterinaria.telefono || 'No disponible'} - Celular: ${veterinaria.celular || 'No disponible'} 
+              ${veterinaria.telefono ? `<a href="tel:${veterinaria.telefono}" class="btn btn-primary btn-sm ml-2">Llamar Fijo</a>` : ""}
+              ${veterinaria.celular ? `<a href="tel:${veterinaria.celular}" class="btn btn-primary btn-sm ml-2">Llamar Celular</a>` : ""}`;
               turnosHoyList.appendChild(turnoItem);
             }
           });
