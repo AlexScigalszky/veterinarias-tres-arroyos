@@ -78,7 +78,8 @@
         fetch('veterinarias.json')
             .then(response => response.json())
             .then(veterinarias => {
-                // Función para generar las tarjetas de las veterinarias
+                let hayTurnosHoy = false;  // Flag para controlar si hay turnos hoy
+
                 veterinarias.forEach(veterinaria => {
                     // Crear lista de turnos en formato legible
                     const turnosFormatted = veterinaria.turnos.map(turno => {
@@ -88,6 +89,8 @@
 
                     // Verificar si la veterinaria está de turno hoy
                     if (veterinaria.turnos.includes(hoy)) {
+                        hayTurnosHoy = true;  // Cambiar el flag si hay turnos hoy
+
                         // Crear tarjeta de veterinaria
                         const card = document.createElement('div');
                         card.className = 'col-12 col-md-6 col-lg-4 veterinaria-card';
@@ -106,13 +109,18 @@
                             </div>
                         `;
                         container.appendChild(card);
-                        // Veterinaria de turno
+
+                        // Agregar a la lista de turnos hoy
                         const turnoItem = document.createElement('li');
                         turnoItem.textContent = `${veterinaria.nombre} - Teléfono: ${veterinaria.telefono}`;
                         turnosHoyList.appendChild(turnoItem);
-                        turnosHoyContainer.style.display = 'block';  // Mostrar la sección de turnos si hay veterinarias
                     }
                 });
+
+                // Mostrar la sección de turnos si hay veterinarias de turno hoy
+                if (hayTurnosHoy) {
+                    turnosHoyContainer.style.display = 'block';
+                }
             })
             .catch(error => console.error('Error al cargar el archivo JSON:', error));
     </script>
