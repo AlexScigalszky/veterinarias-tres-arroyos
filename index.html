@@ -86,17 +86,6 @@ cambiá el código para que los días de turno, estén en otro archivo json:
     
           veterinarias.forEach((veterinaria) => {
             const turnos = turnosData.turnos[veterinaria.nombre] || [];
-            const turnosFormatted = turnos
-              .map((turno) => {
-                const date = new Date(turno);
-                return date.toLocaleDateString("es-ES", {
-                  weekday: "long",
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                });
-              })
-              .join("<br>");
     
             const card = document.createElement("div");
             card.className = "col-12 col-md-6 col-lg-4 veterinaria-card";
@@ -110,7 +99,6 @@ cambiá el código para que los días de turno, estén en otro archivo json:
                     ${veterinaria.direccion ? `<p class="card-text">Dirección: ${veterinaria.direccion}</p>` : ""}
                     <p class="card-text">Teléfono: ${veterinaria.telefono || "No disponible"}</p>
                     <p class="card-text">Celular: ${veterinaria.celular || "No disponible"}</p>
-                    <p class="card-text"><strong>Turnos:</strong><br>${turnosFormatted}</p>
                     ${veterinaria.telefono ? `<a href="tel:${veterinaria.telefono}" class="btn btn-primary mt-2">Llamar al Fijo</a>` : ""}
                     ${veterinaria.celular ? `<a href="tel:${veterinaria.celular}" class="btn btn-primary mt-2">Llamar al Celular</a>` : ""}
                   </div>
