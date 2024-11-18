@@ -3,161 +3,138 @@
     "nombre": "andreasen, javier (veterinaria la blanqueada)",
     "direccion": "rivadavia 751",
     "telefono": "02983425533",
-    "celular": "0298315405962",
-    "turnos": []
+    "celular": "0298315405962"
   },
   {
     "nombre": "almiron, enrique (veterinaria el cencerro)",
     "direccion": "brancen 52",
     "telefono": "02983430082",
-    "celular": "0298315613827",
-    "turnos": []
+    "celular": "0298315613827"
   },
   {
     "nombre": "cordi ayustuy, alejandro",
     "direccion": "moreno 1440",
     "telefono": "",
-    "celular": "0298315448814",
-    "turnos": []
+    "celular": "0298315448814"
   },
   {
     "nombre": "de francesco",
     "direccion": "sadi carnot 245",
     "telefono": "",
-    "celular": "0249415601952",
-    "turnos": []
+    "celular": "0249415601952"
   },
   {
     "nombre": "de luca, dario (veterinaria dario de luca)",
     "direccion": "san lorenzo 455",
     "telefono": "02983425482",
-    "celular": "0298315642380",
-    "turnos": []
+    "celular": "0298315642380"
   },
   {
     "nombre": "diaz mels, marina",
     "direccion": "",
     "telefono": "",
-    "celular": "0298315613403",
-    "turnos": []
+    "celular": "0298315613403"
   },
   {
     "nombre": "di croce, fabio (centro veterinario del sudoeste)",
     "direccion": "pringles 905",
     "telefono": "02983422280",
-    "celular": "0298315460389",
-    "turnos": []
+    "celular": "0298315460389"
   },
   {
     "nombre": "di pascua, luciano (veterinaria las cañas)",
     "direccion": "1 junta 455",
     "telefono": "02983428427",
-    "celular": "0298315605859",
-    "turnos": []
+    "celular": "0298315605859"
   },
   {
     "nombre": "falzetta, leonela",
     "direccion": "",
     "telefono": "",
-    "celular": "0298315641836",
-    "turnos": ["2024-10-24", "2024-10-25", "2024-10-26", "2024-10-28"]
+    "celular": "0298315641836"
   },
   {
     "nombre": "ferrari, pablo (veterinaria el retorno)",
     "direccion": "castelli y av. Del trabajador",
     "telefono": "02983434212",
-    "celular": "0298315642232",
-    "turnos": []
+    "celular": "0298315642232"
   },
   {
     "nombre": "griffoen, milka",
     "direccion": "",
     "telefono": "",
-    "celular": "0298315525004",
-    "turnos": []
+    "celular": "0298315525004"
   },
   {
     "nombre": "iturburu, maria (veterinaria el molino)",
     "direccion": "mitre 69",
     "telefono": "",
-    "celular": "0298315645583",
-    "turnos": []
+    "celular": "0298315645583"
   },
   {
     "nombre": "julian, martina (clinica veterinaria julian)",
     "direccion": "estrada y lamadrid",
     "telefono": "",
-    "celular": "0298315565579",
-    "turnos": []
+    "celular": "0298315565579"
   },
   {
     "nombre": "matta, hector (veterinaria sudeste)",
     "direccion": "lavalle 568",
     "telefono": "0427441",
-    "celular": "",
-    "turnos": []
+    "celular": ""
   },
   {
     "nombre": "marengo, vanesa (veterinaria huinca)",
     "direccion": "av constituyentes 147",
     "telefono": "02983427920",
-    "celular": "0298315504701",
-    "turnos": []
+    "celular": "0298315504701"
   },
   {
     "nombre": "meo guzman, enrique (veterinaria luis pasteur)",
     "direccion": "av san martin 423",
     "telefono": "0 423287",
-    "celular": "",
-    "turnos": []
+    "celular": ""
   },
   {
     "nombre": "pigueiras, diego (clinica veterinaria ts as)",
     "direccion": "liniers 434",
     "telefono": "02983422855",
-    "celular": "0298315525628",
-    "turnos": []
+    "celular": "0298315525628"
   },
   {
     "nombre": "poliero, pedro (veterinaria poliero)",
     "direccion": "rauch 147",
     "telefono": "",
-    "celular": "0298315389101",
-    "turnos": []
+    "celular": "0298315389101"
   },
   {
     "nombre": "sabatini, gustavo (veterinaria sabatini)",
     "direccion": "isabel la catolica 259",
     "telefono": "",
-    "celular": "0298315603534",
-    "turnos": []
+    "celular": "0298315603534"
   },
   {
     "nombre": "saez, daniel (veterinaria del centro)",
     "direccion": "saenz peña 504",
     "telefono": "0 426646",
-    "celular": "",
-    "turnos": []
+    "celular": ""
   },
   {
     "nombre": "vander host, andres (veterinaria las cañas)",
     "direccion": "1 junta 455",
     "telefono": "02983428427",
-    "celular": "0298315402036",
-    "turnos": []
+    "celular": "0298315402036"
   },
   {
     "nombre": "veterinaria agrocolon",
     "direccion": "chacabuco 221",
     "telefono": "",
-    "celular": "0298315572605",
-    "turnos": []
+    "celular": "0298315572605"
   },
   {
     "nombre": "pola capellari, martina",
     "direccion": "",
     "telefono": "",
-    "celular": "0249415465271",
-    "turnos": ["2024-10-24", "2024-10-25", "2024-10-26", "2024-10-28"]
+    "celular": "0249415465271"
   }
 ]
