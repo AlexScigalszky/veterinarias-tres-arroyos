@@ -49,6 +49,9 @@
       #turnos-hoy li, #veterinarias {
         text-transform: capitalize;
       }
+      #turnos-hoy li, #veterinarias a {
+        text-transform: uppercase;
+      }
       @media (max-width: 768px) {
         .veterinaria-card {
           margin-bottom: 15px;
@@ -113,8 +116,8 @@
                     <strong>${veterinaria.nombre}</strong><br>
                     Teléfono: ${veterinaria.telefono || "No disponible"}<br>
                     Celular: ${veterinaria.celular || "No disponible"}<br>
-                    ${veterinaria.telefono ? `<a href="tel:${veterinaria.telefono}" class="btn btn-primary btn-sm mt-2">Llamar Fijo</a>` : ""}
-                    ${veterinaria.celular ? `<a href="tel:${veterinaria.celular}" class="btn btn-primary btn-sm mt-2">Llamar Celular</a>` : ""}
+                    ${veterinaria.telefono ? `<a href="tel:${veterinaria.telefono}" class="btn btn-primary btn-sm mt-2">Llamar al Fijo</a>` : ""}
+                    ${veterinaria.celular ? `<a href="tel:${veterinaria.celular}" class="btn btn-primary btn-sm mt-2">Llamar al Celular</a>` : ""}
                   </div>`;
               turnosHoyList.appendChild(turnoItem);
             }
