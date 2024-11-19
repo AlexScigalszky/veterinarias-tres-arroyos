@@ -76,19 +76,17 @@
       <a href="#" id="whatsapp-share" target="_blank" class="btn btn-success btn-floating" style="position: fixed; bottom: 20px; right: 20px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center">
         <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp" style="width: 30px; height: 30px" />
       </a>
-
-      <script>
-        document.getElementById("whatsapp-share").addEventListener("click", function () {
-          const currentUrl = window.location.href;
-          this.href = `https://wa.me/?text=${encodeURIComponent(currentUrl)}`;
-        });
-      </script>
     </div>
 
     <script>
       const container = document.getElementById("veterinarias");
       const turnosHoyList = document.getElementById("turnos-hoy");
       const turnosHoyContainer = document.getElementById("turnos-hoy-container");
+      const whatsappButton = document.getElementById("whatsapp-share");
+      whatsappButton.addEventListener("click", function () {
+        const currentUrl = window.location.href;
+        document.getElementById("whatsapp-share").href = `https://wa.me/?text=${encodeURIComponent(currentUrl)}`;
+      });
 
       const hoy = new Date().toISOString().split("T")[0];
 
