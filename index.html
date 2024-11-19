@@ -46,10 +46,12 @@
       .turnos-list h3 {
         color: #005f73;
       }
-      #turnos-hoy li, #veterinarias {
+      #turnos-hoy li,
+      #veterinarias {
         text-transform: capitalize;
       }
-      #turnos-hoy li, #veterinarias a {
+      #turnos-hoy li,
+      #veterinarias a {
         text-transform: uppercase;
       }
       @media (max-width: 768px) {
@@ -70,25 +72,33 @@
       </div>
 
       <div class="row" id="veterinarias"></div>
+      <!-- Botón flotante para compartir en WhatsApp -->
+      <a href="#" id="whatsapp-share" target="_blank" class="btn btn-success btn-floating" style="position: fixed; bottom: 20px; right: 20px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp" style="width: 30px; height: 30px" />
+      </a>
+
+      <script>
+        document.getElementById("whatsapp-share").addEventListener("click", function () {
+          const currentUrl = window.location.href;
+          this.href = `https://wa.me/?text=${encodeURIComponent(currentUrl)}`;
+        });
+      </script>
     </div>
 
     <script>
       const container = document.getElementById("veterinarias");
       const turnosHoyList = document.getElementById("turnos-hoy");
       const turnosHoyContainer = document.getElementById("turnos-hoy-container");
-    
+
       const hoy = new Date().toISOString().split("T")[0];
-    
-      Promise.all([
-        fetch("veterinarias.json").then((response) => response.json()),
-        fetch("turnos.json").then((response) => response.json()),
-      ])
+
+      Promise.all([fetch("veterinarias.json").then((response) => response.json()), fetch("turnos.json").then((response) => response.json())])
         .then(([veterinarias, turnosData]) => {
           let hayTurnosHoy = false;
-    
+
           veterinarias.forEach((veterinaria) => {
             const turnos = turnosData.turnos[veterinaria.nombre] || [];
-    
+
             const card = document.createElement("div");
             card.className = "col-12 col-md-6 col-lg-4 veterinaria-card";
             card.innerHTML = `
@@ -107,7 +117,7 @@
                 </div>
             `;
             container.appendChild(card);
-    
+
             if (turnos.includes(hoy)) {
               hayTurnosHoy = true;
               const turnoItem = document.createElement("li");
@@ -122,14 +132,13 @@
               turnosHoyList.appendChild(turnoItem);
             }
           });
-    
+
           if (hayTurnosHoy) {
             turnosHoyContainer.style.display = "block";
           }
         })
         .catch((error) => console.error("Error al cargar archivos JSON:", error));
     </script>
-    
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
