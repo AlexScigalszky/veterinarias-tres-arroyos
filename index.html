@@ -109,8 +109,10 @@
                     ${veterinaria.direccion ? `<p class="card-text">Dirección: ${veterinaria.direccion}</p>` : ""}
                     <p class="card-text">Teléfono: ${veterinaria.telefono || "No disponible"}</p>
                     <p class="card-text">Celular: ${veterinaria.celular || "No disponible"}</p>
+                    <div class="d-flex flex-column justify-content-between">
                     ${veterinaria.telefono ? `<a href="tel:${veterinaria.telefono}" class="btn btn-primary mt-2">Llamar al Fijo</a>` : ""}
                     ${veterinaria.celular ? `<a href="tel:${veterinaria.celular}" class="btn btn-primary mt-2">Llamar al Celular</a>` : ""}
+                    </div>
                   </div>
                 </div>
             `;
